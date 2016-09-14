@@ -1,11 +1,11 @@
 (function () {
 'use strict';
 
-angular.module('LunchChecker', [])
-.controller('LunchCheckerController', LunchCheckerController);
+angular.module('LunchCheck', [])
+.controller('LunchCheckController', LunchCheckerController);
 
-LunchCheckerController.$inject = ['$scope', '$filter'];
-function LunchCheckerController($scope, $filter) {
+LunchCheckerController.$inject = ['$scope'];
+function LunchCheckerController($scope) {
   $scope.list = "";
   $scope.msg = "";
 
@@ -13,7 +13,7 @@ function LunchCheckerController($scope, $filter) {
     var numItems = 0;
     var trimmedList = $scope.list.trim();
     numItems = trimmedList.split(',').length;
-    console.log("numItems="+numItems)
+    //console.log("numItems="+numItems)
     if (trimmedList.length == 0)
         $scope.msg = "Please enter data first";
     else if (numItems <= 3)
