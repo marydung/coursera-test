@@ -1,0 +1,47 @@
+<!-- {{myInfoCtrl}} -->
+<div class="container">
+  <!-- <h2 id="menu-categories-title" class="text-center">Menu Categories</h2>
+  <div class="text-center">
+    Substituting white rice with brown rice or fried rice after 3:00pm will be $1.50 for a pint and $2.50 for a quart.
+  </div> -->
+
+    <div id="info" ng-if="!myInfoCtrl.myInfo.favorite">
+    Not Signed Up Yet.
+    <a ui-sref="public.sign-up">Sign up Now!</a>
+  </div>
+
+  <div id="info" ng-if="myInfoCtrl.myInfo.favorite">
+    Name: {{ myInfoCtrl.myInfo.firstname}} {{ myInfoCtrl.myInfo.lastname}}<br>
+    Email: {{ myInfoCtrl.myInfo.email}} <br>
+    Phone: {{ myInfoCtrl.myInfo.phone }} <br>
+    Favorite Menu Item: {{myInfoCtrl.myInfo.favorite}} <br>
+    <!-- Object : {{myInfoCtrl.myInfo.favMenuItem}} -->
+    <!-- myInfoCtrl.basePath : {{myInfoCtrl.ApiPath}} {{ApiPath}} -->
+
+  <div class="menu-item-tile col-md-6">
+    <div class="row">
+      <div class="col-sm-5">
+        <div class="menu-item-photo">
+          <div>{{myInfoCtrl.myInfo.favMenuItem.short_name}}</div>
+          <img class="img-responsive" width="250" height="150"
+          <!-- ng-src="https://ychaikin-course5.herokuapp.com/images/{{myInfoCtrl.myInfo.favMenuItem.short_name}}.jpg" -->
+          <ng-src= ApiPath + "{{myInfoCtrl.myInfo.favMenuItem.short_name}}.jpg">
+        </div>
+        <div class="menu-item-price">{{myInfoCtrl.myInfo.favMenuItem.price_small | currency}}<span> {{myInfoCtrl.myInfo.favMenuItem.small_portion_name}}</span> {{myInfoCtrl.myInfo.favMenuItem.price_large | currency}} <span>{{myInfoCtrl.myInfo.favMenuItem.large_portion_name}}</span></div>
+      </div>
+      <div class="menu-item-description col-sm-7">
+        <h3 class="menu-item-title">{{myInfoCtrl.myInfo.favMenuItem.name}}</h3>
+        <p class="menu-item-details">{{myInfoCtrl.myInfo.favMenuItem.description}}</p>
+      </div>
+    </div>
+    <!-- <hr class="visible-xs"> -->
+  </div>
+</div>
+
+
+<!--   <menu-category ng-repeat="menuCategory in menuCtrl.menuCategories"
+                 category="menuCategory">
+  </menu-category>
+
+ -->
+ </div>
